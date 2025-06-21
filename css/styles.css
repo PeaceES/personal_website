@@ -1,0 +1,389 @@
+.fancy-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 5rem;
+    font-weight: 100;
+    color: #10334a;
+    margin-bottom: 3rem; /* Reduce space below the title */
+    margin-top: 0.25rem;
+
+
+}
+/* so we created fancy-title class that we can create an instance of later */
+
+.resume-title {
+    font-family: 'Poppins', cursive;
+    font-size: 6rem;
+    color: #d7de8f;
+    margin-bottom: 1rem; /* Reduce space below the title */
+    margin-top: 0.25rem;
+
+}
+/* so we created fancy-title class that we can create an instance of later */
+
+.text-styling {
+    font-family: 'Poppins'; /* Fixed font declaration */
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #10334a;
+    text-align: left; /* Center the text */
+    max-width: 90%; /* Control width */
+    margin: 0 auto; /* Center the block */
+    line-height: 1.4; /* Better line spacing */
+    padding-top: 20px; /* Space from elements above */
+    display: block;
+}
+
+.subtitle {
+    font-family: 'Poppins'; /* Change to any font you like */
+    font-size: 2rem;
+    font-weight: 400;
+    color: #10334a;
+    margin-top: 0; /* Remove extra space above subtitle */
+    margin-bottom: 2rem; /* Reduce this value for less space */
+
+
+}
+
+.resume-subtitle {
+    font-family: 'Poppins'; /* Change to any font you like */
+    font-size: 2rem;
+    color: #d7de8f;
+    margin-top: 0; /* Remove extra space above subtitle */
+    margin-bottom: 2rem; /* Reduce this value for less space */
+
+
+}
+
+
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Move content to the top */
+    padding-top: 60px; /* Add space from the top */
+    margin-bottom: 0; /* Remove extra space below the header section */
+
+}
+/* here we also have another class that centers text*/ 
+
+body {
+    background-image: url('../images/bg1.svg');
+    background-size: 800%; /* Start zoomed in */
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation: bg-zoom-in 1.5s ease-out forwards;
+}
+
+body.resume-page {
+    background-image: url('../images/bg2.svg');
+    background-size: 800%; /* Start zoomed in */
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation: bg-zoom-in 1.5s ease-out forwards;
+}
+
+@keyframes bg-zoom-in {
+    from {
+        background-size: 800%;
+    }
+    to {
+        background-size: 200%;
+    }
+}
+
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 4rem 0 4rem 40px; /* Top, right, bottom, left */
+  padding: 0 1rem;
+  margin-top: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 46px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #10334a;
+  z-index: 0;
+  transform: translateX(-50%); /* Center the line too! */
+}
+.timeline-item {
+  display: flex;
+  position: relative;
+  margin-bottom: 3rem;
+  align-items: flex-start;
+  overflow: visible; /* Ensure dot is not clipped */
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 30px; /* Same position as line */
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 4px solid #d7de8f;
+  border-radius: 50%;
+  z-index: 1;
+  box-sizing: border-box;
+  transform: translateX(-50%); /* Center the dot */
+}
+
+.timeline-content {
+  margin-left: 60px; /* Adjust content position */
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.2s ease;
+  position: relative; /* Add this to position the dotted line */
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%; /* Start from the right edge of the content box */
+  width: 600px; /* Length of the dotted line */
+  height: 2px;
+  border-top: 3px dotted #d7de8f; /* Color matches your timeline vertical line */
+  z-index: 0;
+}
+
+/* Add a new rule specifically for the first timeline item */
+.timeline-item:first-child .timeline-content::after {
+  width: 300px; /* Shorter length for first dotted line */
+}
+
+.timeline-item:first-child .folder-icon {
+  left: calc(100% + 300px); /* Match the shorter line length */
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: #d7de8f;
+  font-size: 1.2rem;
+}
+
+.timeline-content p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.folder-icon {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 600px); /* Position at end of the dotted line */
+  transform: translateY(-50%);
+  background-image: url('../images/folder.svg'); /* Path to your saved icon */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 170px;
+  height: 170px;
+  filter: brightness(0) invert(1); /* Makes the icon white */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.folder-label {
+  /* Remove bottom positioning */
+  /* bottom: -25px; */ 
+  color: #10334a; /* Dark color to contrast with the white icon */
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px; /* Slightly larger for visibility */
+  font-weight: bold;
+  /* Optional: add some space from the top of the icon */
+  margin-top: 20px; 
+  text-shadow: none; /* Remove the shadow for better clarity inside the icon */
+}
+
+.graduation-photo {
+  position: absolute;
+  top: 100%;
+  left: calc(100% + 600px); /* Position at end of the dotted line */
+  transform: translateY(-50%);
+  background-image: url('../images/graduation.JPG'); /* Path to your graduation photo */
+  background-size: cover;
+  background-position: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 10px; /* Rounded corners */
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Position label at bottom */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Add a rule specifically for the second timeline item */
+.timeline-item:nth-child(2) .timeline-content::after {
+  width: 500px; /* Shorter length for second dotted line */
+}
+
+/* Adjust the graduation photo position to match the shorter line */
+.timeline-item:nth-child(2) .graduation-photo {
+  left: calc(100% + 500px); /* Match the shorter line length */
+}
+
+/* Add a rule specifically for the third timeline item */
+.timeline-item:nth-child(3) .timeline-content::after {
+  width: 650px; /* Longer dotted line for third item */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.resume-button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    background-color: #10334a;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resume-button:hover {
+    background-color: #d7de8f;
+    color: #10334a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.corner-photo-container {
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+}
+
+.paper-background {
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    max-width: none;
+}
+
+.profile-photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10%;
+    left: 10%;
+    z-index: 2;
+    object-fit: cover;
+    border-radius: 5px;
+    max-width: none;
+}
+
+.top-menu {
+    position: absolute;
+    top: 90px;
+    right: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+}
+
+.menu-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+}
+
+.menu-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #10334a;
+    font-weight: 500;
+}
+
+.contact-icon-container {
+    position: fixed;
+    bottom: 90px;
+    right: 70px;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.contact-icon-container:hover {
+    transform: scale(1.1);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.contact-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.contact-tooltip {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-color: white;
+    color: #10334a;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.contact-icon-container:hover .contact-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
